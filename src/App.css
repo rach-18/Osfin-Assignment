@@ -1,0 +1,60 @@
+/* Slide In from Left */
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Slide Out to Right */
+@keyframes slideOut {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Apply the animations */
+.slide-in {
+  animation: slideIn 1s ease-out forwards;
+}
+
+.slide-out {
+  animation: slideOut 0.5s ease-in forwards;
+}
+
+/* Airplane Fly Animation */
+@keyframes fly {
+  0% {
+    transform: translateX(-50%) translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateX(50%) translateY(-20px) rotate(-5deg);
+  }
+  100% {
+    transform: translateX(150%) translateY(0) rotate(0deg);
+  }
+}
+
+.animate-fly {
+  animation: fly 5s ease-in-out infinite;
+}
+
+/* Text Bounce Animation */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-bounce {
+  animation: bounce 2s infinite;
+}
