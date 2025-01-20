@@ -29,15 +29,6 @@ function Sidebar() {
     { icon: <TrainIcon sx={{ fontSize: 30 }} />, label: "Trains" },
     { icon: <DirectionsBusIcon sx={{ fontSize: 30 }} />, label: "Buses" },
     { icon: <ShieldIcon sx={{ fontSize: 30 }} />, label: "Travel Insurance" },
-    {
-      icon: (
-        <>
-          <MoreVertIcon sx={{ fontSize: 30 }} />
-          <KeyboardArrowDownIcon sx={{ fontSize: 30 }} />
-        </>
-      ),
-      label: "More",
-    },
   ];
 
   return (
@@ -83,6 +74,11 @@ function Sidebar() {
               <p className="font-semibold text-lg">{item.label}</p>
             </div>
           ))}
+          <div className="flex gap-4 border-b-[0.1rem] items-end px-6 py-3 hover:cursor-pointer hover:bg-[#ECEFFF] hover:border-[#1E1E1E] transition-all">
+            <MoreVertIcon sx={{ fontSize: 30 }} />
+            <p className="font-semibold text-lg">More</p>
+            <KeyboardArrowDownIcon sx={{ fontSize: 30 }} />
+          </div>
         </div>
       </div>
 
