@@ -14,10 +14,6 @@ interface Passenger {
   validGender: boolean;
 }
 
-interface PassengerDetails {
-  passengers: Passenger[];
-}
-
 function PassengerDeatils() {
   const { passengerDetails, setPassengerDetails } = useAppContext();
 
@@ -44,7 +40,7 @@ function PassengerDeatils() {
         <Ticket />
         <p className="mt-5 text-sm text-[#626262]">1/3 STEP</p>
         <p className="font-bold text-xl">Passenger Details</p>
-        {passengerDetails.passengers.map((passenger, index) => {
+        {passengerDetails.passengers.map((_, index) => {
           return (
             <div key={index} className="mt-5 z-20">
               <p className="text-lg font-semibold">

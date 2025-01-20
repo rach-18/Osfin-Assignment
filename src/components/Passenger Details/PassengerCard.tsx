@@ -5,15 +5,6 @@ import DatePicker from "react-datepicker";
 import { useAppContext } from "../Context/AppContext";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-interface Passenger {
-  name: string;
-  dob: Date | null;
-  gender: "Male" | "Female" | "Others" | "";
-  validName: boolean;
-  validDob: boolean;
-  validGender: boolean;
-}
-
 interface PassengerCardProps {
   passengerIndex: number;
 }
@@ -74,7 +65,7 @@ function PassengerCard({ passengerIndex }: PassengerCardProps) {
   const handleDeletePassenger = () => {
     setPassengerDetails((prev) => {
       const currPassengers = [...prev.passengers];
-      const filteredPassengers = currPassengers.filter((passenger, index) => {
+      const filteredPassengers = currPassengers.filter((_, index) => {
         return index !== passengerIndex;
       });
 

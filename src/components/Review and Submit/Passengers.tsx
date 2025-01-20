@@ -1,27 +1,5 @@
 import { useAppContext } from "../Context/AppContext";
 
-interface Passenger {
-  name: string;
-  dob: Date | null;
-  gender: string;
-}
-
-interface ContactDetails {
-  contact: string;
-  email: string;
-}
-
-interface PassengerDetails {
-  passengers: Passenger[];
-  contactDetails: ContactDetails;
-}
-
-interface AppContextType {
-  passengerDetails: PassengerDetails;
-  formatDate: (date: Date | null) => string; // Make sure the type of `date` is Date | null
-  emailDisplay: (email: string) => string;
-}
-
 const Passengers: React.FC = () => {
   const { passengerDetails, formatDate, emailDisplay } = useAppContext();
 

@@ -25,7 +25,6 @@ const Navigation: React.FC<NavigationProps> = ({ step }) => {
   const [open, setOpen] = useState<boolean>(false);
   const {
     passengerDetails,
-    setPassengerDetails,
     setSubmissionError,
     secureTrip,
     setSecureTrip,
