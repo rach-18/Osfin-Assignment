@@ -7,9 +7,10 @@ function ContactCard() {
   const { passengerDetails, setPassengerDetails, submissionError } =
     useAppContext();
 
+  // Function to update the contact number and its validity
   const handleNumber = (e: ChangeEvent<HTMLInputElement>) => {
     const newNumber = e.target.value;
-    const numberRegex = /^[6-9]\d{9}$/;
+    const numberRegex = /^[6-9]\d{9}$/; //Ensuring the number starts with 6, 7, 8 or 9 and that it only has 10 digits
 
     setPassengerDetails((prev) => {
       const updatedContact = {
@@ -22,9 +23,10 @@ function ContactCard() {
     });
   };
 
+  // Function to update the email and its validity
   const handleEmail = (e: ChangeEvent<HTMLInputElement>) => {
     const newEmail = e.target.value;
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; //Ensuring that the entered email is valid
 
     setPassengerDetails((prev) => {
       const updatedContact = {
@@ -62,6 +64,7 @@ function ContactCard() {
                 value={contacts.contact}
                 placeholder="Enter Phone Number..."
               />
+              {/* Displaying a valid or invalid icon according to the input */}
               {(contacts.contact || submissionError) &&
                 (contacts.validContact ? (
                   <CheckCircleIcon
@@ -113,6 +116,7 @@ function ContactCard() {
               value={contacts.email}
               placeholder="Enter Your Email..."
             />
+            {/* Displaying a valid or invalid icon according to the input */}
             {(contacts.email || submissionError) &&
               (contacts.validEmail ? (
                 <CheckCircleIcon

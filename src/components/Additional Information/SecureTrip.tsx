@@ -10,6 +10,7 @@ interface CardData {
 }
 
 const SecureTrip: React.FC = () => {
+  // Contents of the cards
   const cardData: CardData[] = [
     {
       icon: <LuggageOutlinedIcon sx={{ fontSize: 30 }} />,

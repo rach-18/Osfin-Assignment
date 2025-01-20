@@ -97,10 +97,12 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
   const [loading, setLoading] = useState<boolean>(false);
   const navigate = useNavigate();
 
+  // Adding the data to local storage
   useEffect(() => {
     localStorage.setItem("passengerDetails", JSON.stringify(passengerDetails));
   }, [passengerDetails]);
 
+  // This function is to format the date in dd-mm-yyy
   const formatDate = (date: Date | null): string => {
     if (!date) return ""; // Handle null case
     const day = String(date.getDate()).padStart(2, "0");
@@ -110,6 +112,7 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
     return `${day}-${month}-${year}`;
   };
 
+  // This function is to only show 1/3 of the email starting from the first character till the @ and then show default value for the rest
   const emailDisplay = (email: string): string => {
     const sub = email.slice(0, email.indexOf("@"));
     const ind = Math.ceil(sub.length / 3);
@@ -117,6 +120,7 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
     return sub.slice(0, ind) + "****@****.com";
   };
 
+  // This function is to reset the data
   const resetData = (): void => {
     navigate("/");
     const resetDetails: PassengerDetails = {

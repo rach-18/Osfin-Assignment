@@ -15,6 +15,8 @@ const AdditionalInformation: React.FC = () => {
       <p className="font-bold sm:text-xl text-lg">Additional Information</p>
       <Baggage type="additional" />
       <SecureTrip />
+
+      {/* SHOWING A WARNING SIGN IF THE USER HAVE NOT SELECTED AN OPTION */}
       {secureTrip === "no value" && (
         <div
           data-aos="zoom-in"
@@ -24,6 +26,8 @@ const AdditionalInformation: React.FC = () => {
           <p>Please select an option</p>
         </div>
       )}
+
+      {/* OPTION TO SECURE OR NOT SECURE THE TRIP */}
       <div className="flex items-center gap-2 mt-4">
         <input
           value="secure"

@@ -17,6 +17,7 @@ interface Passenger {
 function PassengerDeatils() {
   const { passengerDetails, setPassengerDetails } = useAppContext();
 
+  // Function to add a new passenger
   const handleAddPassenger = () => {
     const newPassenger: Passenger = {
       name: "",

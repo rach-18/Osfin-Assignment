@@ -22,7 +22,7 @@ const style = {
 };
 
 const Navigation: React.FC<NavigationProps> = ({ step }) => {
-  const [open, setOpen] = useState<boolean>(false);
+  const [open, setOpen] = useState<boolean>(false); //This is to either close or open the modal
   const {
     passengerDetails,
     setSubmissionError,
@@ -33,15 +33,17 @@ const Navigation: React.FC<NavigationProps> = ({ step }) => {
     navigate,
   } = useAppContext();
 
-  const handleOpen = () => setOpen(true);
+  const handleOpen = () => setOpen(true); //Opens the modal
 
-  const handleClose = () => setOpen(false);
+  const handleClose = () => setOpen(false); //Closes the modal
 
+  // This function validates the contact details of the passenger
   const validateContact = (): boolean => {
     const { validContact, validEmail } = passengerDetails.contactDetails;
     return validContact && validEmail;
   };
 
+  // This function validates the personal details of the passengers
   const validatePassengers = (): boolean => {
     const passengers = passengerDetails.passengers;
     return passengers.every(
@@ -50,8 +52,10 @@ const Navigation: React.FC<NavigationProps> = ({ step }) => {
     );
   };
 
+  // This function handles navigating to the next step
   const handleNext = () => {
     if (step === 1) {
+      //If the user is in step 1 then it will check the personal and contact details of the user
       console.log(validateContact());
       console.log(validatePassengers());
       if (validateContact() && validatePassengers()) {
@@ -63,6 +67,7 @@ const Navigation: React.FC<NavigationProps> = ({ step }) => {
         console.log("Please enter valid details");
       }
     } else if (step === 2) {
+      //If the user is in step 2 then it will make sure the user has seleted whether they want to secure their trip or not
       if (!secureTrip || secureTrip === "no value") {
         setSecureTrip("no value");
       } else {
@@ -70,6 +75,7 @@ const Navigation: React.FC<NavigationProps> = ({ step }) => {
         navigate("/review-submit");
       }
     } else if (step === 3) {
+      //If the user is in step 3 and the details is finally submitted then this will show the loading page for 5 seconds then navigate to the final page
       setLoading(true);
 
       setTimeout(() => {
@@ -79,6 +85,7 @@ const Navigation: React.FC<NavigationProps> = ({ step }) => {
     }
   };
 
+  // This function navigates the user 1 step backward
   const handleBack = () => {
     if (step === 2) {
       navigate("/");
@@ -87,6 +94,7 @@ const Navigation: React.FC<NavigationProps> = ({ step }) => {
     }
   };
 
+  // This function cancels the booking and resets the data
   const handleCancel = () => {
     setOpen(false);
     resetData();
@@ -95,9 +103,11 @@ const Navigation: React.FC<NavigationProps> = ({ step }) => {
   return (
     <>
       <div className="mt-5 flex sm:flex-row flex-col sm:gap-0 gap-2 items-center justify-between">
+        {/* This cancel button is for bigger screens */}
         <button onClick={handleOpen} className="underline sm:block hidden">
           Cancel
         </button>
+        {/* This is the confirmation modal for canceling the booking */}
         <Modal
           open={open}
           onClose={handleClose}

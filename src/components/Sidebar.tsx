@@ -74,7 +74,9 @@ function Sidebar() {
             <div
               key={index}
               className={`flex gap-4 border-b-[0.1rem] ${
-                index === 0 ? "border-[#1E1E1E]" : "border-[#D9D9D9]"
+                index === 0
+                  ? "border-[#1E1E1E] bg-[#ECEFFF]"
+                  : "border-[#D9D9D9]"
               } items-end px-6 py-3 hover:cursor-pointer hover:bg-[#ECEFFF] hover:border-[#1E1E1E] transition-all`}
             >
               {item.icon}

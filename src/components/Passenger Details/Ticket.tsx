@@ -5,6 +5,7 @@ import AirplanemodeActiveRoundedIcon from "@mui/icons-material/AirplanemodeActiv
 const Ticket: React.FC = () => {
   return (
     <>
+      {/* OUTER DIV FOR THE GRADIENT BORDER */}
       <div
         data-aos="fade-up"
         data-aos-duration="1500"

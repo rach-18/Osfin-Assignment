@@ -5,11 +5,14 @@ interface BookingInformationProps {
 }
 
 const BookingInformation: React.FC<BookingInformationProps> = ({ curStep }) => {
+  // Function to check which step the user is on and accordingly style the number or show a check mark to makr the step as completed
   const stepStatus = (step: number) => {
     if (step === 1) {
       if (curStep > 1) {
+        //This means step 1 is completed
         return <CheckCircleIcon sx={{ fontSize: 40 }} />;
       } else {
+        //This means step 1 is in progress
         return (
           <p className="font-semibold sm:text-lg border-[0.1rem] border-[#D9D9D9] rounded-full h-10 w-10 flex items-center justify-center">
             1
@@ -18,39 +21,46 @@ const BookingInformation: React.FC<BookingInformationProps> = ({ curStep }) => {
       }
     } else if (step === 2) {
       if (curStep < 2) {
+        //This means step 2 is pending and the user is likely in step 1
         return (
           <p className="font-semibold sm:text-lg text-[#A8A8A8] border-[0.1rem] border-[#D9D9D9] rounded-full h-10 w-10 flex items-center justify-center">
             2
           </p>
         );
       } else if (curStep === 2) {
+        //This means step 2 is in progress
         return (
           <p className="font-semibold sm:text-lg border-[0.1rem] border-[#D9D9D9] rounded-full h-10 w-10 flex items-center justify-center">
             2
           </p>
         );
       } else {
+        //This means step 2 is completed
         return <CheckCircleIcon sx={{ fontSize: 40 }} />;
       }
     } else {
       if (curStep < 3) {
+        //This means step 3 is pending and the user is likely in either step 1 or step 2
         return (
           <p className="font-semibold sm:text-lg text-[#A8A8A8] border-[0.1rem] border-[#D9D9D9] rounded-full h-10 w-10 flex items-center justify-center">
             3
           </p>
         );
       } else if (curStep === 3) {
+        //This means step 3 is in progress
         return (
           <p className="font-semibold sm:text-lg border-[0.1rem] border-[#D9D9D9] rounded-full h-10 w-10 flex items-center justify-center">
             3
           </p>
         );
       } else {
+        //This means step 3 is completed
         return <CheckCircleIcon sx={{ fontSize: 40 }} />;
       }
     }
   };
 
+  // This function prints the status of the step the user is on
   const status = (step: number) => {
     if (step === 1) {
       if (curStep > 1) {

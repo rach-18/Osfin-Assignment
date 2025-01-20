@@ -13,6 +13,7 @@ function PassengerCard({ passengerIndex }: PassengerCardProps) {
   const { passengerDetails, setPassengerDetails, submissionError } =
     useAppContext();
 
+  // Function to update the passenger name and ensure it has more than 3 characters
   const handleName = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newName = e.target.value;
 
@@ -27,6 +28,7 @@ function PassengerCard({ passengerIndex }: PassengerCardProps) {
     });
   };
 
+  // Function to update the dob and make sure that the date is neither in the future nor is the user's age more than 90
   const handleDob = (date: Date | null) => {
     console.log(date);
     const currentDate = new Date();
@@ -48,6 +50,7 @@ function PassengerCard({ passengerIndex }: PassengerCardProps) {
     console.log(passengerDetails);
   };
 
+  // Function to update the gender
   const handleGender = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newGender = e.target.value;
 
@@ -62,6 +65,7 @@ function PassengerCard({ passengerIndex }: PassengerCardProps) {
     });
   };
 
+  // Function to delete the extra passengers
   const handleDeletePassenger = () => {
     setPassengerDetails((prev) => {
       const currPassengers = [...prev.passengers];
@@ -90,6 +94,7 @@ function PassengerCard({ passengerIndex }: PassengerCardProps) {
               onChange={handleName}
               placeholder="Enter Full Name..."
             />
+            {/* Displaying a valid or invalid icon according to the input */}
             {(passenger.name || submissionError) &&
               (!passenger.validName ? (
                 <InfoIcon
@@ -142,6 +147,7 @@ function PassengerCard({ passengerIndex }: PassengerCardProps) {
               scrollableYearDropdown
               scrollableMonthYearDropdown
             />
+            {/* Displaying a valid or invalid icon according to the input */}
             {(passenger.dob || submissionError) &&
               (!passenger.validDob ? (
                 <InfoIcon
@@ -214,6 +220,7 @@ function PassengerCard({ passengerIndex }: PassengerCardProps) {
               />
               <p>Others</p>
             </div>
+            {/* Displaying a valid or invalid icon according to the input */}
             {(passenger.gender || submissionError) &&
               (passenger.validGender ? (
                 <CheckCircleIcon
@@ -244,6 +251,8 @@ function PassengerCard({ passengerIndex }: PassengerCardProps) {
           </p>
         </div>
       </form>
+
+      {/* Only showing the delete button if it is not the first passenger because the first passenger is there by default and cannot be deleted */}
       {passengerIndex > 0 && (
         <button
           onClick={handleDeletePassenger}
