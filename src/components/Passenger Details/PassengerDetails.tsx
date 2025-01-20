@@ -1,10 +1,9 @@
-import { useContext } from "react";
-import BookingInformation from "../BookingInformation";
-import Navigation from "../Navigation";
-import ContactCard from "./ContactCard";
-import Ticket from "./Ticket";
-import { AppContext } from "../Context/AppContext";
-import PassengerCard from "./PassengerCard";
+import BookingInformation from "../BookingInformation.tsx";
+import Navigation from "../Navigation.tsx";
+import ContactCard from "./ContactCard.tsx";
+import Ticket from "./Ticket.tsx";
+import { useAppContext } from "../Context/AppContext.tsx";
+import PassengerCard from "./PassengerCard.tsx";
 
 interface Passenger {
   name: string;
@@ -20,7 +19,7 @@ interface PassengerDetails {
 }
 
 function PassengerDeatils() {
-  const { passengerDetails, setPassengerDetails } = useContext(AppContext);
+  const { passengerDetails, setPassengerDetails } = useAppContext();
 
   const handleAddPassenger = () => {
     const newPassenger: Passenger = {
@@ -32,7 +31,7 @@ function PassengerDeatils() {
       validGender: false,
     };
 
-    setPassengerDetails((prev: PassengerDetails) => ({
+    setPassengerDetails((prev) => ({
       ...prev,
       passengers: [...prev.passengers, newPassenger],
     }));

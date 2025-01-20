@@ -1,14 +1,13 @@
-import BookingInformation from "../BookingInformation";
+import BookingInformation from "../BookingInformation.tsx";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import Ticket from "../Passenger Details/Ticket";
-import { useContext } from "react";
-import { AppContext } from "../Context/AppContext";
+import { useAppContext } from "../Context/AppContext";
 
 interface SubmissionProps {}
 
 const Submission: React.FC<SubmissionProps> = () => {
   const { passengerDetails, formatDate, emailDisplay, resetData } =
-    useContext(AppContext);
+    useAppContext();
 
   return (
     <>
@@ -32,7 +31,7 @@ const Submission: React.FC<SubmissionProps> = () => {
               </div>
               <div className="flex gap-5 items-center w-full">
                 <p className="font-semibold text-lg w-1/2">Date of Birth</p>
-                <p>{formatDate(passenger.dob)}</p>
+                <p>{passenger.dob ? formatDate(passenger.dob) : "N/A"} </p>
               </div>
               <div className="flex gap-5 items-center w-full">
                 <p className="font-semibold text-lg w-1/2">Gender</p>

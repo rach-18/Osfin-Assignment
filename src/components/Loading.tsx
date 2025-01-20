@@ -1,8 +1,8 @@
-import { useContext, useEffect, useState } from "react";
-import { AppContext } from "./Context/AppContext";
+import { useEffect, useState } from "react";
+import { useAppContext } from "./Context/AppContext";
 
 const Loading: React.FC = () => {
-  const { loading } = useContext(AppContext);
+  const { loading } = useAppContext();
   const [isExiting, setIsExiting] = useState<boolean>(false);
 
   useEffect(() => {

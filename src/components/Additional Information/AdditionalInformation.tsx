@@ -1,13 +1,12 @@
-import { useContext } from "react";
-import BookingInformation from "../BookingInformation";
-import Navigation from "../Navigation";
-import Baggage from "./Baggage";
-import SecureTrip from "./SecureTrip";
+import BookingInformation from "../BookingInformation.tsx";
+import Navigation from "../Navigation.tsx";
+import Baggage from "./Baggage.tsx";
+import SecureTrip from "./SecureTrip.tsx";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
-import { AppContext } from "../Context/AppContext";
+import { useAppContext } from "../Context/AppContext.tsx";
 
 const AdditionalInformation: React.FC = () => {
-  const { secureTrip, setSecureTrip } = useContext(AppContext);
+  const { secureTrip, setSecureTrip } = useAppContext();
 
   return (
     <>

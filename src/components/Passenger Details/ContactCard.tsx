@@ -1,19 +1,11 @@
-import { useContext, useState, ChangeEvent } from "react";
+import { ChangeEvent } from "react";
 import InfoIcon from "@mui/icons-material/Info";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import { AppContext } from "../Context/AppContext";
-
-// Define the type for the ContactDetails from the context
-interface ContactDetails {
-  contact: string;
-  email: string;
-  validContact: boolean;
-  validEmail: boolean;
-}
+import { useAppContext } from "../Context/AppContext";
 
 function ContactCard() {
   const { passengerDetails, setPassengerDetails, submissionError } =
-    useContext(AppContext);
+    useAppContext();
 
   const handleNumber = (e: ChangeEvent<HTMLInputElement>) => {
     const newNumber = e.target.value;

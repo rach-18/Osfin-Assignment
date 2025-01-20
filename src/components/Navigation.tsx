@@ -1,8 +1,7 @@
-import { useContext, useState } from "react";
-import { AppContext } from "./Context/AppContext";
+import { useState } from "react";
+import { useAppContext } from "./Context/AppContext";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 
@@ -33,7 +32,7 @@ const Navigation: React.FC<NavigationProps> = ({ step }) => {
     setLoading,
     resetData,
     navigate,
-  } = useContext(AppContext);
+  } = useAppContext();
 
   const handleOpen = () => setOpen(true);
 
@@ -97,11 +96,7 @@ const Navigation: React.FC<NavigationProps> = ({ step }) => {
   return (
     <>
       <div className="mt-5 flex sm:flex-row flex-col sm:gap-0 gap-2 items-center justify-between">
-        <button
-          onClick={handleOpen}
-          className="underline sm:block hidden"
-          to="#"
-        >
+        <button onClick={handleOpen} className="underline sm:block hidden">
           Cancel
         </button>
         <Modal
@@ -152,11 +147,7 @@ const Navigation: React.FC<NavigationProps> = ({ step }) => {
             {step === 3 ? "Submit" : "Next"}
           </button>
         </div>
-        <button
-          onClick={handleOpen}
-          className="underline sm:hidden block"
-          to="#"
-        >
+        <button onClick={handleOpen} className="underline sm:hidden block">
           Cancel
         </button>
       </div>

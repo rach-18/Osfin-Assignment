@@ -1,4 +1,10 @@
-import React, { createContext, useEffect, useState, ReactNode } from "react";
+import React, {
+  createContext,
+  useEffect,
+  useState,
+  ReactNode,
+  useContext,
+} from "react";
 import { useNavigate } from "react-router-dom";
 
 // Define the types for passenger details
@@ -95,7 +101,8 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
     localStorage.setItem("passengerDetails", JSON.stringify(passengerDetails));
   }, [passengerDetails]);
 
-  const formatDate = (date: Date): string => {
+  const formatDate = (date: Date | null): string => {
+    if (!date) return ""; // Handle null case
     const day = String(date.getDate()).padStart(2, "0");
     const month = String(date.getMonth() + 1).padStart(2, "0");
     const year = date.getFullYear();
@@ -154,4 +161,15 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
       {children}
     </AppContext.Provider>
   );
+};
+
+// Custom hook to safely access context
+export const useAppContext = (): AppContextType => {
+  const context = useContext(AppContext);
+
+  if (!context) {
+    throw new Error("useAppContext must be used within an AppProvider");
+  }
+
+  return context;
 };

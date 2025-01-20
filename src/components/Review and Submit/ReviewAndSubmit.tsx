@@ -1,9 +1,9 @@
-import Baggage from "../Additional Information/Baggage";
-import BookingInformation from "../BookingInformation";
-import Loading from "../Loading";
-import Navigation from "../Navigation";
-import AirlineDetails from "./AirlineDetails";
-import Passengers from "./Passengers";
+import Baggage from "../Additional Information/Baggage.tsx";
+import BookingInformation from "../BookingInformation.tsx";
+import Loading from "../Loading.tsx";
+import Navigation from "../Navigation.tsx";
+import AirlineDetails from "./AirlineDetails.tsx";
+import Passengers from "./Passengers.tsx";
 
 interface ReviewAndSubmitProps {}
 

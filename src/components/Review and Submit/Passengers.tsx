@@ -1,9 +1,8 @@
-import { useContext } from "react";
-import { AppContext } from "../Context/AppContext";
+import { useAppContext } from "../Context/AppContext";
 
 interface Passenger {
   name: string;
-  dob: string;
+  dob: Date | null;
   gender: string;
 }
 
@@ -19,16 +18,12 @@ interface PassengerDetails {
 
 interface AppContextType {
   passengerDetails: PassengerDetails;
-  formatDate: (date: string) => string;
+  formatDate: (date: Date | null) => string; // Make sure the type of `date` is Date | null
   emailDisplay: (email: string) => string;
 }
 
 const Passengers: React.FC = () => {
-  const { passengerDetails, formatDate, emailDisplay } = useContext(
-    AppContext
-  ) as AppContextType;
-
-  console.log(passengerDetails);
+  const { passengerDetails, formatDate, emailDisplay } = useAppContext();
 
   return (
     <>
@@ -45,7 +40,10 @@ const Passengers: React.FC = () => {
             </div>
             <div className="w-full flex items-center md:justify-between mx-8">
               <p className="text-[#626262] w-1/2">Date of Birth</p>
-              <p className="font-semibold">{formatDate(passenger.dob)}</p>
+              <p className="font-semibold">
+                {passenger.dob ? formatDate(passenger.dob) : "N/A"}{" "}
+                {/* Handle null */}
+              </p>
             </div>
             <div className="w-full flex items-center md:justify-between mx-8">
               <p className="text-[#626262] w-1/2">Gender</p>
@@ -57,13 +55,15 @@ const Passengers: React.FC = () => {
           <div className="md:w-1/3 w-full flex items-center md:justify-between md:mx-8">
             <p className="text-[#626262] w-1/2">Phone No.</p>
             <p className="font-semibold">
-              {passengerDetails.contactDetails.contact}
+              {passengerDetails.contactDetails.contact || "N/A"}{" "}
+              {/* Handle empty contact */}
             </p>
           </div>
           <div className="md:w-1/3 w-full flex items-center md:justify-between md:mx-8">
             <p className="text-[#626262] w-1/2">Email Address</p>
             <p className="font-semibold">
-              {emailDisplay(passengerDetails.contactDetails.email)}
+              {emailDisplay(passengerDetails.contactDetails.email) || "N/A"}{" "}
+              {/* Handle empty email */}
             </p>
           </div>
         </div>

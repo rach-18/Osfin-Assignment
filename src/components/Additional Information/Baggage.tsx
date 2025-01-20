@@ -4,7 +4,7 @@ import LuggageOutlinedIcon from "@mui/icons-material/LuggageOutlined";
 import InfoIcon from "@mui/icons-material/Info";
 
 interface BaggageProps {
-  type: "additional" | "included";
+  type: "additional" | "review";
 }
 
 const Baggage: React.FC<BaggageProps> = ({ type }) => {

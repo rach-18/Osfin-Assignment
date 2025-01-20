@@ -1,9 +1,8 @@
-import { useContext } from "react";
 import InfoIcon from "@mui/icons-material/Info";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
-import { AppContext } from "../Context/AppContext";
+import { useAppContext } from "../Context/AppContext";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 interface Passenger {
@@ -21,7 +20,7 @@ interface PassengerCardProps {
 
 function PassengerCard({ passengerIndex }: PassengerCardProps) {
   const { passengerDetails, setPassengerDetails, submissionError } =
-    useContext(AppContext);
+    useAppContext();
 
   const handleName = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newName = e.target.value;
