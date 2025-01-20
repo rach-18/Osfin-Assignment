@@ -76,6 +76,7 @@ The project is also deployed on [Vercel](https://osfin-assignment.vercel.app/). 
 - **Tailwind CSS**: A utility-first CSS framework for custom designs.
 - **React Router**: Library for handling routing and navigation within the app.
 - **Vercel**: Platform for deploying the project to the web.
+- **AOS (Animate On Scroll)**: A library for adding scroll-based animations to the page, making the website more dynamic and engaging.
 
 ## Challenges and Solutions
 
