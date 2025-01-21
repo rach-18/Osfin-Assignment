@@ -4,7 +4,7 @@ interface BookingInformationProps {
   curStep: number;
 }
 
-const BookingInformation: React.FC<BookingInformationProps> = ({ curStep }) => {
+const BookingInformation = ({ curStep }: BookingInformationProps) => {
   // Function to check which step the user is on and accordingly style the number or show a check mark to makr the step as completed
   const stepStatus = (step: number) => {
     if (step === 1) {

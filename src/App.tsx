@@ -10,7 +10,7 @@ import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const App: React.FC = () => {
+const App = () => {
   // AOS Animation initialization
   useEffect(() => {
     AOS.init({

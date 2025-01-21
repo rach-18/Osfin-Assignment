@@ -5,7 +5,7 @@ import SecureTrip from "./SecureTrip.tsx";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 import { useAppContext } from "../Context/AppContext.tsx";
 
-const AdditionalInformation: React.FC = () => {
+const AdditionalInformation = () => {
   const { secureTrip, setSecureTrip } = useAppContext();
 
   return (

@@ -2,7 +2,7 @@ import FlightTakeoffIcon from "@mui/icons-material/FlightTakeoff";
 import SouthEastRoundedIcon from "@mui/icons-material/SouthEastRounded";
 import AirplanemodeActiveRoundedIcon from "@mui/icons-material/AirplanemodeActiveRounded";
 
-const Ticket: React.FC = () => {
+const Ticket = () => {
   return (
     <>
       {/* OUTER DIV FOR THE GRADIENT BORDER */}

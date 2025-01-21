@@ -7,7 +7,7 @@ interface BaggageProps {
   type: "additional" | "review";
 }
 
-const Baggage: React.FC<BaggageProps> = ({ type }) => {
+const Baggage = ({ type }: BaggageProps) => {
   return (
     <>
       <h2 className="text-lg font-semibold mt-5">Baggage Options</h2>

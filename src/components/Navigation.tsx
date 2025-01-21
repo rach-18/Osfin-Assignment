@@ -21,7 +21,7 @@ const style = {
   textAlign: "center",
 };
 
-const Navigation: React.FC<NavigationProps> = ({ step }) => {
+const Navigation = ({ step }: NavigationProps) => {
   const [open, setOpen] = useState<boolean>(false); //This is to either close or open the modal
   const {
     passengerDetails,

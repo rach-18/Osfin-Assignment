@@ -9,7 +9,7 @@ interface CardData {
   subtext: string;
 }
 
-const SecureTrip: React.FC = () => {
+const SecureTrip = () => {
   // Contents of the cards
   const cardData: CardData[] = [
     {

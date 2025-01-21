@@ -3,9 +3,7 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import Ticket from "../Passenger Details/Ticket";
 import { useAppContext } from "../Context/AppContext";
 
-interface SubmissionProps {}
-
-const Submission: React.FC<SubmissionProps> = () => {
+const Submission = () => {
   const { passengerDetails, formatDate, emailDisplay, resetData } =
     useAppContext();
 

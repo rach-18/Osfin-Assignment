@@ -5,9 +5,7 @@ import Navigation from "../Navigation.tsx";
 import AirlineDetails from "./AirlineDetails.tsx";
 import Passengers from "./Passengers.tsx";
 
-interface ReviewAndSubmitProps {}
-
-const ReviewAndSubmit: React.FC<ReviewAndSubmitProps> = () => {
+const ReviewAndSubmit = () => {
   return (
     <>
       <Loading />

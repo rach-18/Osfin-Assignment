@@ -1,6 +1,6 @@
 import { useAppContext } from "../Context/AppContext";
 
-const Passengers: React.FC = () => {
+const Passengers = () => {
   const { passengerDetails, formatDate, emailDisplay } = useAppContext();
 
   return (

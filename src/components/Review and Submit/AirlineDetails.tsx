@@ -1,6 +1,6 @@
 import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
 
-const AirlineDetails: React.FC = () => {
+const AirlineDetails = () => {
   return (
     <>
       <div className="flex sm:flex-row flex-col sm:gap-4 gap-1 sm:items-end items-start">
